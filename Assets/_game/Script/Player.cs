@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    public bool isDead => HP <= 0;
+    public bool isDead => hp <= 0;
     public float speed = 5.0f;
-    public int HP = 5;
+    public int hp = 5;
     public Joystick controller;
     public Animator anim;
     public static Player instance;
     public GameObject gunHolder;
     public GameObject enemy;
-
+    public Rigidbody2D rb;
     [SerializeField] string currentAnim="";
-
     void Start()
     {
         instance = this;
@@ -90,7 +89,22 @@ public class Player : MonoBehaviour
             gunHolder.transform.rotation = Quaternion.Euler(0, 0, angle);
         }
     }
-    
+    public void Hit()
+    {
+        //push player back a bit
+        if(hp ==1)
+        {
+            Dead();
+        }
+        rb.AddForce(new Vector2(-transform.localScale.x, 1) * 5, ForceMode2D.Impulse);
+        hp--;
+        rb.velocity = Vector2.zero;
+    }
+    public void Dead()
+    {
+        hp =0;
+        ChangeAnim("Dead");
+    }
     public void ChangeAnim(string newAnim)
     {
         if(currentAnim != "")
