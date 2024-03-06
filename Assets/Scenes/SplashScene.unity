@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 1100335753}
   - component: {fileID: 1100335752}
   m_Layer: 5
-  m_Name: SplashArt
+  m_Name: LoadingScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
