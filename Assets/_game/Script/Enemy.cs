@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,8 +9,10 @@ public class Enemy : MonoBehaviour
     public int hp = 30;
     public float speed = 4.5f;
     public GameObject target;
+    public Animator anim;
     public bool isDead => hp <= 0;
-    public List<Component> skillList = new List<Component>();
+    [SerializeField] string currentAnim ="";
+    //public List<Component> skillList = new List<Component>();
     public void Start()
     {
         if(target == null)
@@ -27,6 +30,15 @@ public class Enemy : MonoBehaviour
     {
         if(target != null)
         {
+            ChangeAnim("fly");
+            if(target.transform.position.x < transform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+            }
+            else if(target.transform.position.x > transform.position.x)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+            }
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         }
     }
@@ -43,5 +55,16 @@ public class Enemy : MonoBehaviour
         {
             Die();
         }
+    }
+
+    public void ChangeAnim(String newAnim)
+    {
+        if(currentAnim != newAnim)
+        {
+            if(currentAnim != "")
+                anim.ResetTrigger(currentAnim);
+        }
+        currentAnim = newAnim;
+        anim.SetTrigger(currentAnim);
     }
 }
