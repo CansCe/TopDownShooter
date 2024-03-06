@@ -340,7 +340,7 @@ Transform:
   m_GameObject: {fileID: 287243552}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.829, y: -0.019, z: 0}
+  m_LocalPosition: {x: 0.33, y: -0.019, z: 0}
   m_LocalScale: {x: 0.45, y: 0.45, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1243,10 +1243,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_02
       objectReference: {fileID: 0}
-    - target: {fileID: 2295050076673701028, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2530808928177569140, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.46
@@ -1287,10 +1283,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8204889061925183518, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
-      propertyPath: speed
-      value: 2.5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1307,10 +1299,6 @@ PrefabInstance:
     - target: {fileID: 351717570404217602, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
       propertyPath: m_Name
       value: Enemy_01
-      objectReference: {fileID: 0}
-    - target: {fileID: 2686928176882267448, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
-      propertyPath: speed
-      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 3125492550182010016, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1351,10 +1339,6 @@ PrefabInstance:
     - target: {fileID: 3125492550182010016, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4159457428498220200, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
-      propertyPath: m_SortingOrder
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
