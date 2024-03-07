@@ -7,21 +7,23 @@ using UnityEngine.UI;
 public class LoadingSceneController : MonoBehaviour
 {
     public GameObject loadingScreen;
-    public Slider loadingBar;
+    public Slider progressBar;
+    public float fillSpeed = 0.1f;
 
-    public void LoadScene(int levelIndex)
+    private void Start()
     {
-        StartCoroutine(LoadSceneAsynchronously(levelIndex));
+        progressBar.value = 0f;
     }
 
-    IEnumerator LoadSceneAsynchronously(int levelIndex)
+    private void Update()
     {
-        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
-        loadingScreen.SetActive(true);
-        while (!operation.isDone)
+        if (progressBar.value < 5f)
         {
-            loadingBar.value = operation.progress;
-            yield return null;
+            progressBar.value += fillSpeed * Time.deltaTime;
         }
+    }
+    public bool IsProgressBarFull()
+    {
+        return progressBar.value >= 1f;
     }
 }

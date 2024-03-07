@@ -23,23 +23,10 @@ public class GateController : MonoBehaviour
         public GameObject[] typeOfVariant;
     }
 
-
-    private void Start()
-    {
-
-        //StartCoroutine(SpawnItem());
-
-
-    }
-    private void OnEnable()
-    {
-
-    }
     private void Update()
     {
         CalculateWave();
     }
-
 
     public virtual void CalculateWave()
     {

@@ -281,7 +281,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 23c7f062fc5e22a498ecdc833a199e4b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1243,6 +1243,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_02
       objectReference: {fileID: 0}
+    - target: {fileID: 1601000868655036900, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2530808928177569140, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.46
@@ -1299,6 +1303,10 @@ PrefabInstance:
     - target: {fileID: 351717570404217602, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
       propertyPath: m_Name
       value: Enemy_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 351717570404217602, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3125492550182010016, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
       propertyPath: m_LocalPosition.x
