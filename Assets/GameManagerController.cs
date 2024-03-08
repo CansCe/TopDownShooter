@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 public class GameManagerController : MonoBehaviour
 {
-    public Button Pausebutton;
+    public Button Pausebutton, Resumebutton;
     public GameObject screenSetting;
 
 
@@ -18,6 +18,7 @@ public class GameManagerController : MonoBehaviour
     void Update()
     {
         Pausebutton.onClick.AddListener(() => pauseGame());
+        Resumebutton.onClick.AddListener(() => resumeGame());
     }
 
     private void pauseGame()
@@ -29,5 +30,6 @@ public class GameManagerController : MonoBehaviour
     private void resumeGame()
     {
         Time.timeScale = 1;
+        screenSetting.SetActive(false);
     }
 }

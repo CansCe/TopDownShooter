@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ProjectilesScript : MonoBehaviour
 {
-    public float speed= 5f; 
+    public float speed = 5f; 
     void Update()
     {
         
