@@ -1243,10 +1243,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_02
       objectReference: {fileID: 0}
-    - target: {fileID: 1601000868655036900, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2530808928177569140, guid: 6da0b066af55be04cb5dc01e1a9c2926, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.46
@@ -1304,10 +1300,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy_01
       objectReference: {fileID: 0}
-    - target: {fileID: 351717570404217602, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3125492550182010016, guid: e74d5fdef9ac6a24484a59faf3e1e9c1, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.62
@@ -1361,9 +1353,9 @@ SceneRoots:
   - {fileID: 1763629204}
   - {fileID: 849155216}
   - {fileID: 1759008900}
+  - {fileID: 1619867465}
   - {fileID: 1491338025}
   - {fileID: 2097450180}
   - {fileID: 7401815272134386913}
   - {fileID: 5472390960699457538}
   - {fileID: 1766664592}
-  - {fileID: 1619867465}
