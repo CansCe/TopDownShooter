@@ -76,6 +76,11 @@ public class Player : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
+        if(enemies.Length == 0)
+        {
+            enemy = null;
+            return;
+        }
         foreach(GameObject enemy in enemies)
         {
             Vector3 diff = enemy.transform.position - position;
@@ -113,8 +118,9 @@ public class Player : MonoBehaviour
     }
     public void Shoot()
     {
-        if(enemy == null )
-            FindNearestEnemy();
+        FindNearestEnemy();
+        if (enemy == null)
+            return;
         GameObject clonedBullet = SimplePool.instance.GetPooledBullet();
         if(clonedBullet != null)
         {

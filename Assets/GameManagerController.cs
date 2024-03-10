@@ -8,8 +8,6 @@ public class GameManagerController : MonoBehaviour
 {
     public Button Pausebutton, Resumebutton;
     public GameObject screenSetting;
-
-
     void Start()
     {
         
