@@ -20,7 +20,6 @@ public class Enemy : MonoBehaviour
             target = GameObject.FindWithTag("Player");
         }
     }
-
     public void Update()
     {
         Move();
@@ -42,12 +41,10 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         }
     }
-
     public void Die()
     {
         Destroy(gameObject);
     }
-
     public void TakeDamage(int damage)
     {
         hp -= damage;

@@ -6,7 +6,9 @@ public class Player : MonoBehaviour
 {
     public bool isDead => hp <= 0;
     public float speed = 5.0f;
+    public float timeEachShoot = 0.5f;
     public int hp = 5;
+    public int ammo = 7;
     public Joystick controller;
     public Animator anim;
     public static Player instance;
@@ -24,6 +26,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         RotateGunHolder();
+        if(ammo != 0 && !isDead)
+        {
+            if(timeEachShoot <= 0)
+            {
+                Shoot();
+                timeEachShoot = 0.5f;
+                ammo--;
+            }
+            else
+            {
+                timeEachShoot -= Time.deltaTime;
+            }
+        }
     }
     void FixedUpdate()
     {
@@ -61,6 +76,11 @@ public class Player : MonoBehaviour
         GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
         float distance = Mathf.Infinity;
         Vector3 position = transform.position;
+        if(enemies.Length == 0)
+        {
+            enemy = null;
+            return;
+        }
         foreach(GameObject enemy in enemies)
         {
             Vector3 diff = enemy.transform.position - position;
@@ -75,7 +95,17 @@ public class Player : MonoBehaviour
     //add to update if player use gun
     public void RotateGunHolder()
     {
-        if(enemy != null)
+        //if ammo == 0 mak the gun holder spin 360 degree to looks like reload
+        if (!isDead)
+        {
+            if (ammo == 0)
+            {
+                gunHolder.transform.GetChild(0).transform.Rotate(0, 0, 360 * Time.deltaTime);
+                StartCoroutine(ShootAndReload());
+                return;
+            }
+        }
+        if (enemy != null)
         { 
             Vector3 diff = enemy.transform.position - gunHolder.transform.position;
             float angle = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
@@ -85,6 +115,25 @@ public class Player : MonoBehaviour
         {
             FindNearestEnemy();
         }
+    }
+    public void Shoot()
+    {
+        FindNearestEnemy();
+        if (enemy == null)
+            return;
+        GameObject clonedBullet = SimplePool.instance.GetPooledBullet();
+        if(clonedBullet != null)
+        {
+            //rotate the bullet to the same direction as the gun holder
+            clonedBullet.transform.rotation = gunHolder.transform.GetChild(0).transform.rotation;
+            clonedBullet.transform.position = gunHolder.transform.GetChild(0).transform.position;
+            clonedBullet.SetActive(true);
+        }
+    }
+    public IEnumerator ShootAndReload()
+    {
+        yield return new WaitForSeconds(1.5f);
+        ammo = 7;
     }
     public void Hit()
     {
