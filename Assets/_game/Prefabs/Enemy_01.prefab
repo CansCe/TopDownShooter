@@ -125,8 +125,8 @@ MonoBehaviour:
   speed: 2.5
   target: {fileID: 0}
   anim: {fileID: 1864465692246886760}
+  enemyType: 0
   currentAnim: 
-  skillList: []
 --- !u!50 &3934111744680032331
 Rigidbody2D:
   serializedVersion: 4

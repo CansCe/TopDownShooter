@@ -6,15 +6,14 @@ public class SimplePool : MonoBehaviour
 {
     public static SimplePool instance;
     public GameObject bulletPrefabs;
+    public GameObject explosion;
     public List<GameObject> bulletPool;
-    // Start is called before the first frame update
-    
-    void Start()
+    public List<GameObject> enemyBulletPool;
+    void Awake()
     {
         instance = this;
         SpawnAndPoolBullet();
     }
-
     void SpawnAndPoolBullet()
     {
         for(int i = 0; i < 30; i++)
@@ -24,7 +23,15 @@ public class SimplePool : MonoBehaviour
             bulletPool.Add(bullet);
         }
     }
-
+    void SpawnAndPoolEnemyBullet()
+    {
+        for (int i = 0; i < 30; i++)
+        {
+            GameObject bullet = Instantiate(bulletPrefabs, transform);
+            bullet.SetActive(false);
+            bulletPool.Add(bullet);
+        }
+    }
     public GameObject GetPooledBullet()
     {
         foreach(GameObject bullet in bulletPool)

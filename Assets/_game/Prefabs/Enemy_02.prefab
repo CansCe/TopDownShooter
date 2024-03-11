@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2530808928177569140}
   - component: {fileID: 2295050076673701028}
   - component: {fileID: 2965704683855430908}
-  - component: {fileID: 8204889061925183518}
+  - component: {fileID: 5106965064987385894}
   - component: {fileID: 6705256554323927654}
   - component: {fileID: 3654509194983482928}
   m_Layer: 0
@@ -109,7 +109,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8204889061925183518
+--- !u!114 &5106965064987385894
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,16 +118,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1601000868655036900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf758df0f349d784390bbc3491b3ddef, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c503fd25e4147f458bb515e770fe789, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 30
-  speed: 2.5
+  speed: 2.75
   target: {fileID: 0}
-  explosionPrefab: {fileID: 5409172179098506517, guid: 7f0accc6959bf14449ee39bda05c71d3, type: 3}
   anim: {fileID: 2965704683855430908}
+  enemyType: 0
   currentAnim: 
-  skillList: []
+  explode: {fileID: 5409172179098506517, guid: 7f0accc6959bf14449ee39bda05c71d3, type: 3}
 --- !u!50 &6705256554323927654
 Rigidbody2D:
   serializedVersion: 4

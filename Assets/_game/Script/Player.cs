@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -161,12 +162,17 @@ public class Player : MonoBehaviour
         currentAnim = newAnim;
         anim.SetTrigger(currentAnim);
     }
+    public void AppliedSlowEffect()
+    {
+        speed -= 1.5f;
+        timeEachShoot += 0.25f;
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {
             Hit();
-            UIController.instance.UpdateHealthBar();
         }
     }
+
 }

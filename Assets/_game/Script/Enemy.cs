@@ -8,21 +8,22 @@ public class Enemy : MonoBehaviour
 {
     public int hp = 30;
     public float speed = 4.5f;
-    public GameObject target, explosionPrefab;
+    public GameObject target;
     public Animator anim;
+    public int enemyType;
     public bool isDead => hp <= 0;
     [SerializeField] string currentAnim ="";
-    public List<Component> skillList = new List<Component>();
     public void Start()
     {
-        if(target == null)
+        if (target == null)
         {
             target = GameObject.FindWithTag("Player");
         }
     }
-    public void Update()
+    public virtual void Update()
     {
-        Move();
+        if(!isDead)
+            Move();
     }
 
     public virtual void Move()
@@ -42,24 +43,18 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void SpawnExplosion()
+    public virtual IEnumerator Die()
     {
-        Instantiate(explosionPrefab, transform.position, transform.rotation);
-    }    
-
-
-    public void Die()
-    {
+        ChangeAnim("die");
+        yield return new WaitForSeconds(0.4f);
         Destroy(gameObject);
-        SpawnExplosion();
     }
-
     public void TakeDamage(int damage)
     {
         hp -= damage;
         if (hp <= 0)
         {
-            Invoke("Die", 1f);
+            StartCoroutine(Die());
         }
     }
 

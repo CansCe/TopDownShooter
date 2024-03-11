@@ -24,7 +24,7 @@ public class ProjectilesScript : MonoBehaviour
 
         transform.transform.Translate(UnityEngine.Vector2.right * speed * Time.deltaTime);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Enemy"))
         {

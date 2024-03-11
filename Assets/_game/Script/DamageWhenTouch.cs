@@ -4,12 +4,16 @@ using UnityEngine;
 
 public class DamageWhenTouch : MonoBehaviour
 {
-    public void Oninit()
+    public float existanceTime = 0.5f;
+    private void Update()
     {
-
+        existanceTime -= Time.deltaTime;
+        if (existanceTime <= 0)
+        {
+            gameObject.SetActive(false);
+            existanceTime = 0.5f;
+        }
     }
-
-
     //after active check if any game object in in the collider
     public void OnCollisionEnter2D(Collision2D collision)
     {
