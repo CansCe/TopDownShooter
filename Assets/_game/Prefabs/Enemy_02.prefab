@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2530808928177569140
 Transform:
   m_ObjectHideFlags: 0
@@ -126,6 +126,7 @@ MonoBehaviour:
   target: {fileID: 0}
   anim: {fileID: 2965704683855430908}
   currentAnim: 
+  skillList: []
 --- !u!50 &6705256554323927654
 Rigidbody2D:
   serializedVersion: 4
