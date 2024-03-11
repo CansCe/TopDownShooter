@@ -20,7 +20,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2530808928177569140
 Transform:
   m_ObjectHideFlags: 0
@@ -124,6 +124,7 @@ MonoBehaviour:
   hp: 30
   speed: 2.5
   target: {fileID: 0}
+  explosionPrefab: {fileID: 5409172179098506517, guid: 7f0accc6959bf14449ee39bda05c71d3, type: 3}
   anim: {fileID: 2965704683855430908}
   currentAnim: 
 --- !u!50 &6705256554323927654

@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public int hp = 30;
     public float speed = 4.5f;
-    public GameObject target;
+    public GameObject target, explosionPrefab;
     public Animator anim;
     public bool isDead => hp <= 0;
     [SerializeField] string currentAnim ="";
@@ -41,16 +41,25 @@ public class Enemy : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, speed * Time.deltaTime);
         }
     }
+
+    public void SpawnExplosion()
+    {
+        Instantiate(explosionPrefab, transform.position, transform.rotation);
+    }    
+
+
     public void Die()
     {
         Destroy(gameObject);
+        SpawnExplosion();
     }
+
     public void TakeDamage(int damage)
     {
         hp -= damage;
         if (hp <= 0)
         {
-            Die();
+            Invoke("Die", 1f);
         }
     }
 

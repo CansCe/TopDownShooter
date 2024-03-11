@@ -1,12 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GameManagerController : MonoBehaviour
 {
-    public Button Pausebutton, Resumebutton;
+    public Button pauseButton;
     public GameObject screenSetting;
     void Start()
     {
@@ -15,8 +17,7 @@ public class GameManagerController : MonoBehaviour
 
     void Update()
     {
-        Pausebutton.onClick.AddListener(() => pauseGame());
-        Resumebutton.onClick.AddListener(() => resumeGame());
+        pauseButton.onClick.AddListener(() => pauseGame());
     }
 
     private void pauseGame()
@@ -25,9 +26,20 @@ public class GameManagerController : MonoBehaviour
         screenSetting.SetActive(true);
     }
 
-    private void resumeGame()
+    public void resumeGame()
     {
         Time.timeScale = 1;
         screenSetting.SetActive(false);
+    }
+
+    public void ReloadScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        resumeGame();
+    }
+
+    public void quitGame()
+    {
+        Application.Quit();
     }
 }
