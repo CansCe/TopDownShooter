@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     public Animator anim;
     public bool isDead => hp <= 0;
     [SerializeField] string currentAnim ="";
-    //public List<Component> skillList = new List<Component>();
+    public List<Component> skillList = new List<Component>();
     public void Start()
     {
         if(target == null)
@@ -72,5 +72,13 @@ public class Enemy : MonoBehaviour
         }
         currentAnim = newAnim;
         anim.SetTrigger(currentAnim);
+    }
+    public void TriggerWhenDie()
+    {
+
+    }
+    public void TriggerWhenLive()
+    {
+
     }
 }

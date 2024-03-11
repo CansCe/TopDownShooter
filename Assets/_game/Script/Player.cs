@@ -26,9 +26,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         RotateGunHolder();
-        if(ammo != 0 && !isDead)
+        if (ammo != 0 && !isDead)
         {
-            if(timeEachShoot <= 0)
+            if (timeEachShoot <= 0)
             {
                 Shoot();
                 timeEachShoot = 0.5f;
@@ -160,5 +160,13 @@ public class Player : MonoBehaviour
         }
         currentAnim = newAnim;
         anim.SetTrigger(currentAnim);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Enemy"))
+        {
+            Hit();
+            UIController.instance.UpdateHealthBar();
+        }
     }
 }

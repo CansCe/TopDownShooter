@@ -127,6 +127,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 5409172179098506517, guid: 7f0accc6959bf14449ee39bda05c71d3, type: 3}
   anim: {fileID: 2965704683855430908}
   currentAnim: 
+  skillList: []
 --- !u!50 &6705256554323927654
 Rigidbody2D:
   serializedVersion: 4
