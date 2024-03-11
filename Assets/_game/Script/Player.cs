@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
     }
     public void Dead()
     {
-        hp =0;
+        hp = 0;
         ChangeAnim("dead");
     }
     public void ChangeAnim(string newAnim)
