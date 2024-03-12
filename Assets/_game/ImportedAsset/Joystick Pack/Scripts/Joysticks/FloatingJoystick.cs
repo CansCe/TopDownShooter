@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -22,5 +23,9 @@ public class FloatingJoystick : Joystick
     {
         background.gameObject.SetActive(false);
         base.OnPointerUp(eventData);
+    }
+    public float GetHorizontalInput()
+    {
+        return 0f;
     }
 }

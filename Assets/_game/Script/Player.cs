@@ -189,7 +189,7 @@ public class Player : MonoBehaviour
     void ScreenBoundary()
     {
         transform.position = new Vector3(
-            Mathf.Clamp(transform.position.x, -8f, 8f),
-            Mathf.Clamp(transform.position.y, -10f, 10f), transform.position.z);
+            Mathf.Clamp(transform.position.x, -10f, 10f),
+            Mathf.Clamp(transform.position.y, -20f, 20f), transform.position.z);
     }
 }
