@@ -40,11 +40,14 @@ public class Player : MonoBehaviour
                 timeEachShoot -= Time.deltaTime;
             }
         }
-    }
-    void FixedUpdate()
-    {
         Move();
     }
+    //void FixedUpdate()
+    //{
+    //    ScreenBoundary();
+    //    Move();
+    //}
+
     public void Move()
     {
         if(controller == null)
@@ -71,6 +74,7 @@ public class Player : MonoBehaviour
             if (!isDead)
                 ChangeAnim("idle");
         }
+        ScreenBoundary();
     }
     public void FindNearestEnemy()
     {
@@ -94,6 +98,7 @@ public class Player : MonoBehaviour
         }
     }
     //add to update if player use gun
+
     public void RotateGunHolder()
     {
         //if ammo == 0 mak the gun holder spin 360 degree to looks like reload
@@ -117,6 +122,7 @@ public class Player : MonoBehaviour
             FindNearestEnemy();
         }
     }
+
     public void Shoot()
     {
         FindNearestEnemy();
@@ -131,11 +137,13 @@ public class Player : MonoBehaviour
             clonedBullet.SetActive(true);
         }
     }
+
     public IEnumerator ShootAndReload()
     {
         yield return new WaitForSeconds(1.5f);
         ammo = 7;
     }
+
     public void Hit()
     {
         //push player back a bit
@@ -147,11 +155,13 @@ public class Player : MonoBehaviour
         hp--;
         rb.velocity = Vector2.zero;
     }
+
     public void Dead()
     {
         hp = 0;
         ChangeAnim("dead");
     }
+
     public void ChangeAnim(string newAnim)
     {
         if(currentAnim != "")
@@ -162,6 +172,7 @@ public class Player : MonoBehaviour
         currentAnim = newAnim;
         anim.SetTrigger(currentAnim);
     }
+
     public void AppliedSlowEffect()
     {
         speed -= 1.5f;
@@ -175,4 +186,10 @@ public class Player : MonoBehaviour
         }
     }
 
+    void ScreenBoundary()
+    {
+        transform.position = new Vector3(
+            Mathf.Clamp(transform.position.x, -8f, 8f),
+            Mathf.Clamp(transform.position.y, -10f, 10f), transform.position.z);
+    }
 }
