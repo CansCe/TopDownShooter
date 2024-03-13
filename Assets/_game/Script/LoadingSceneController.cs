@@ -26,4 +26,19 @@ public class LoadingSceneController : MonoBehaviour
     {
         return progressBar.value >= 1f;
     }
+
+    public void LoadScene(int levelIndex)
+    {
+        StartCoroutine(LoadSceneAsynchronously(levelIndex));
+    }
+    IEnumerator LoadSceneAsynchronously(int levelIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(levelIndex);
+        loadingScreen.SetActive(true);
+        while (!operation.isDone)
+        {
+            progressBar.value = operation.progress;
+            yield return null;
+        }
+    }
 }

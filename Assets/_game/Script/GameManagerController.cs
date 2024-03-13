@@ -35,6 +35,7 @@ public class GameManagerController : MonoBehaviour
     {
         Time.timeScale = 1;
         screenSetting.SetActive(false);
+        screenDefeat.SetActive(false);
     }
 
     public void ReloadScene()
@@ -45,8 +46,8 @@ public class GameManagerController : MonoBehaviour
 
     public void HomeScene()
     {
-
-    }    
+        SceneManager.LoadScene("HomeScene", LoadSceneMode.Additive);
+    }
 
     public void YouLose()
     {
