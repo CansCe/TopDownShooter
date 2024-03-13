@@ -160,6 +160,7 @@ public class Player : MonoBehaviour
     {
         hp = 0;
         ChangeAnim("dead");
+        GameManagerController.instance.YouLose();
     }
 
     public void ChangeAnim(string newAnim)

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,10 +10,14 @@ using UnityEngine.UI;
 public class GameManagerController : MonoBehaviour
 {
     public Button pauseButton;
-    public GameObject screenSetting;
+    public GameObject screenSetting, screenDefeat;
+    public static GameManagerController instance;
     void Start()
     {
-        
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
     void Update()
@@ -37,6 +42,19 @@ public class GameManagerController : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         resumeGame();
     }
+
+    public void HomeScene()
+    {
+
+    }    
+
+    public void YouLose()
+    {
+        {
+            Time.timeScale = 0;
+            screenDefeat.SetActive(true);
+        }    
+    }    
 
     public void quitGame()
     {
